@@ -141,6 +141,7 @@ module Juggernaut
         # todo - should be called after timeout?
         @client.logout_connection_request(@channels)
         logger.debug "Lost client #{@client.friendly_id}"
+        @client.remove_channels!(@channels)
       end
       mark_dead('Unbind called')
     end
